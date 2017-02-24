@@ -10,9 +10,17 @@ using System.Windows.Forms;
 
 namespace CharacterSheetForms
 {
-    public partial class Form1 : Form
+    public partial class CharacterSheet : Form
     {
-        public Form1()
+        int
+            strength, strMod,
+            dexterity, dexMod,
+            constitution, conMod,
+            intelligence, intMod,
+            wisdom, wisMod,
+            charisma, chaMod;
+
+        public CharacterSheet()
         {
             InitializeComponent();
         }
