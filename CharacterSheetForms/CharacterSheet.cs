@@ -36,6 +36,8 @@ namespace CharacterSheetForms
             Refresh();
         }
 
+        // TextChanged events, calling on the tryParseAndChange function.
+
         private void StrengthField_TextChanged(object sender, EventArgs e)
         {
             tryParseAndChange(StrengthField, modifiers.str);
@@ -44,33 +46,37 @@ namespace CharacterSheetForms
         {
             tryParseAndChange(DexterityField, modifiers.dex);
         }
-
         private void ConstitutionField_TextChanged(object sender, EventArgs e)
         {
             tryParseAndChange(ConstitutionField, modifiers.con);
         }
-
         private void IntelligenceField_TextChanged(object sender, EventArgs e)
         {
             tryParseAndChange(IntelligenceField, modifiers.inte);
         }
-
         private void WisdomField_TextChanged(object sender, EventArgs e)
         {
             tryParseAndChange(WisdomField, modifiers.wis);
         }
-
         private void CharismaField_TextChanged(object sender, EventArgs e)
         {
             tryParseAndChange(CharismaField, modifiers.cha);
         }
 
+        /// <summary>
+        /// A dynamic function, working for all ability scores, and short enough.
+        /// Needs an else.
+        /// </summary>
+        /// <param name="field"></param>
+        /// <param name="mod"></param>
         private void tryParseAndChange(TextBox field, modifiers mod)
         {
             int result;
             int.TryParse(field.Text.Trim(), out result);
-            if (result < 21 && result > 0)
+            if (result < 31 && result > 0)
                 calculateMod(mod, result);
+            else
+                //calculateMod(mod, 10); + setthe field back to 10 or so.
         }
 
         private void calculateMod(modifiers mod, int result)
@@ -115,7 +121,7 @@ namespace CharacterSheetForms
         private void Race_Click(object sender, EventArgs e)
         {
             HidePopups();
-            setMouseLocation();
+            saveMouseLocation();
             Popup(ListboxRace);
         }
 
@@ -134,7 +140,7 @@ namespace CharacterSheetForms
         private void Class_Click(object sender, EventArgs e)
         {
             HidePopups();
-            setMouseLocation();
+            saveMouseLocation();
             Popup(ListboxClass);
         }
 
@@ -152,7 +158,7 @@ namespace CharacterSheetForms
         //    theThing.Visible = true;
         //}
 
-        private void setMouseLocation()
+        private void saveMouseLocation()
         {
             mouseLocation = PointToClient(Cursor.Position);
         }
