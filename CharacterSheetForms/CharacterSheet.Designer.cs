@@ -57,6 +57,7 @@
             this.Level = new System.Windows.Forms.Label();
             this.ClassText = new System.Windows.Forms.TextBox();
             this.RaceText = new System.Windows.Forms.TextBox();
+            this.AttributeNotification = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TopBox)).BeginInit();
             this.SuspendLayout();
@@ -285,6 +286,7 @@
             // 
             // TopBox
             // 
+            this.TopBox.BackColor = System.Drawing.SystemColors.Control;
             this.TopBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.TopBox.Location = new System.Drawing.Point(102, 12);
             this.TopBox.Name = "TopBox";
@@ -297,7 +299,11 @@
             // 
             // ListboxClass
             // 
+            this.ListboxClass.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ListboxClass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ListboxClass.Font = new System.Drawing.Font("OCR A Extended", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListboxClass.FormattingEnabled = true;
+            this.ListboxClass.ItemHeight = 12;
             this.ListboxClass.Items.AddRange(new object[] {
             "Barbarian",
             "Bard",
@@ -311,15 +317,19 @@
             "Sorcerer",
             "Warlock",
             "Wizard"});
-            this.ListboxClass.Location = new System.Drawing.Point(116, 10);
+            this.ListboxClass.Location = new System.Drawing.Point(102, 199);
             this.ListboxClass.Name = "ListboxClass";
-            this.ListboxClass.Size = new System.Drawing.Size(74, 69);
+            this.ListboxClass.Size = new System.Drawing.Size(93, 64);
             this.ListboxClass.TabIndex = 21;
             this.ListboxClass.SelectedValueChanged += new System.EventHandler(this.ListboxClass_SelectedValueChanged);
             // 
             // ListboxRace
             // 
+            this.ListboxRace.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ListboxRace.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ListboxRace.Font = new System.Drawing.Font("OCR A Extended", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListboxRace.FormattingEnabled = true;
+            this.ListboxRace.ItemHeight = 12;
             this.ListboxRace.Items.AddRange(new object[] {
             "Aasimar",
             "Deep Gnome / Sfirneblin",
@@ -353,9 +363,9 @@
             "Tiefling: Variant",
             "Triton",
             "Yuan-Ti Pureblood"});
-            this.ListboxRace.Location = new System.Drawing.Point(110, 10);
+            this.ListboxRace.Location = new System.Drawing.Point(102, 117);
             this.ListboxRace.Name = "ListboxRace";
-            this.ListboxRace.Size = new System.Drawing.Size(144, 82);
+            this.ListboxRace.Size = new System.Drawing.Size(189, 76);
             this.ListboxRace.TabIndex = 22;
             this.ListboxRace.Visible = false;
             this.ListboxRace.SelectedValueChanged += new System.EventHandler(this.ListboxRace_SelectedValueChanged);
@@ -421,7 +431,6 @@
             this.ClassText.ReadOnly = true;
             this.ClassText.Size = new System.Drawing.Size(103, 20);
             this.ClassText.TabIndex = 27;
-            this.ClassText.Text = "test";
             this.ClassText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // RaceText
@@ -433,8 +442,24 @@
             this.RaceText.ReadOnly = true;
             this.RaceText.Size = new System.Drawing.Size(103, 20);
             this.RaceText.TabIndex = 28;
-            this.RaceText.Text = "test";
             this.RaceText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // AttributeNotification
+            // 
+            this.AttributeNotification.AccessibleDescription = "AttributeNotification";
+            this.AttributeNotification.AccessibleName = "AttributeNotification";
+            this.AttributeNotification.AutoSize = true;
+            this.AttributeNotification.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.AttributeNotification.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.AttributeNotification.Font = new System.Drawing.Font("OCR A Extended", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttributeNotification.Location = new System.Drawing.Point(102, 99);
+            this.AttributeNotification.Name = "AttributeNotification";
+            this.AttributeNotification.Size = new System.Drawing.Size(287, 14);
+            this.AttributeNotification.TabIndex = 29;
+            this.AttributeNotification.Text = "Attribute score must be between 1 and 30";
+            this.AttributeNotification.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AttributeNotification.Visible = false;
+            this.AttributeNotification.Click += new System.EventHandler(this.AttributeNotification_Click);
             // 
             // CharacterSheet
             // 
@@ -444,6 +469,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1059, 568);
+            this.Controls.Add(this.AttributeNotification);
             this.Controls.Add(this.RaceText);
             this.Controls.Add(this.ClassText);
             this.Controls.Add(this.Level);
@@ -513,6 +539,7 @@
         private System.Windows.Forms.Label Level;
         private System.Windows.Forms.TextBox ClassText;
         private System.Windows.Forms.TextBox RaceText;
+        private System.Windows.Forms.Label AttributeNotification;
     }
 }
 

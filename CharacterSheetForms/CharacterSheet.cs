@@ -22,6 +22,8 @@ namespace CharacterSheetForms
 
         enum modifiers { str, dex, con, inte, wis, cha };
 
+        Point savedLocation;
+
         private void ListboxRace_SelectedValueChanged(object sender, EventArgs e)
         {
             RaceText.Text = ListboxRace.Text;
@@ -73,14 +75,19 @@ namespace CharacterSheetForms
         {
             int result;
             int.TryParse(field.Text.Trim(), out result);
-            if (result < 31 && result > 0)
+            if (result <= 30 && result > 0)
                 calculateMod(mod, result);
-            //else
-                //calculateMod(mod, 10); + setthe field back to 10 or so.
+            else
+            {
+                Popup(AttributeNotification, field.Location);
+                field.Text = "10";
+                tryParseAndChange(field, mod);
+            }   
         }
 
         private void calculateMod(modifiers mod, int result)
         {
+            
             switch (mod)
             {
                 case modifiers.str:
@@ -113,6 +120,11 @@ namespace CharacterSheetForms
             label.Text = modifier.ToString();
         }
 
+        private void AttributeNotification_Click(object sender, EventArgs e)
+        {
+            HidePopups();
+        }
+
         private void TopBox_Click(object sender, EventArgs e)
         {
             HidePopups();
@@ -121,13 +133,12 @@ namespace CharacterSheetForms
         private void Race_Click(object sender, EventArgs e)
         {
             HidePopups();
-            saveMouseLocation();
-            Popup(ListboxRace);
+            Popup(ListboxRace, Cursor.Position);
         }
 
         private void Level_Click(object sender, EventArgs e)
         {
-
+            HidePopups();
         }
 
         private void LeftBox_Click(object sender, EventArgs e)
@@ -135,38 +146,42 @@ namespace CharacterSheetForms
             HidePopups();
         }
 
-        Point mouseLocation;
-
         private void Class_Click(object sender, EventArgs e)
         {
             HidePopups();
-            saveMouseLocation();
-            Popup(ListboxClass);
+            Popup(ListboxClass, Cursor.Position);
         }
 
-        private void Popup(ListBox listBox)
+        private void Popup(ListBox listBox, Point setPoint)
         {
+            saveLocation(setPoint);
             listBox.BringToFront();
-            listBox.Location = mouseLocation;
+            listBox.Location = savedLocation;
             listBox.Visible = true;
         }
 
-        //private void Popup(AnotherThing theThing)
-        //{
-        //    theThing.BringToFront();
-        //    theThing.Location = mouseLocation;
-        //    theThing.Visible = true;
-        //}
-
-        private void saveMouseLocation()
+        private void Popup(Label label, Point setPoint)
         {
-            mouseLocation = PointToClient(Cursor.Position);
+            setPoint.Y -= 30;
+            saveLocation(setPoint);
+            label.BringToFront();
+            label.Location = savedLocation;
+            label.Visible = true;
+        }
+
+        private void saveLocation(Point setPoint)
+        {
+            if (setPoint == Cursor.Position)
+                savedLocation = PointToClient(setPoint);
+            else
+                savedLocation = setPoint;
         }
 
         private void HidePopups()
         {
             ListboxRace.Visible = false;
             ListboxClass.Visible = false;
+            AttributeNotification.Visible = false;
         }
 
         private void CharacterSheet_Load(object sender, EventArgs e)
