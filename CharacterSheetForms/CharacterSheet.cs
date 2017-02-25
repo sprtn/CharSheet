@@ -75,7 +75,7 @@ namespace CharacterSheetForms
             int.TryParse(field.Text.Trim(), out result);
             if (result < 31 && result > 0)
                 calculateMod(mod, result);
-            else
+            //else
                 //calculateMod(mod, 10); + setthe field back to 10 or so.
         }
 
