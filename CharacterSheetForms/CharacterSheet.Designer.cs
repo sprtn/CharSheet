@@ -220,7 +220,7 @@
             this.LeftBox.Location = new System.Drawing.Point(12, 12);
             this.LeftBox.Name = "LeftBox";
             this.LeftBox.Padding = new System.Windows.Forms.Padding(5);
-            this.LeftBox.Size = new System.Drawing.Size(84, 544);
+            this.LeftBox.Size = new System.Drawing.Size(84, 490);
             this.LeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.LeftBox.TabIndex = 12;
             this.LeftBox.TabStop = false;
@@ -468,7 +468,7 @@
             this.RandomizeStats.AccessibleDescription = "RandomizeStats";
             this.RandomizeStats.AccessibleName = "RandomizeStats";
             this.RandomizeStats.BackColor = System.Drawing.Color.Orange;
-            this.RandomizeStats.Location = new System.Drawing.Point(12, 511);
+            this.RandomizeStats.Location = new System.Drawing.Point(12, 508);
             this.RandomizeStats.Name = "RandomizeStats";
             this.RandomizeStats.Size = new System.Drawing.Size(84, 45);
             this.RandomizeStats.TabIndex = 30;
@@ -483,7 +483,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1059, 568);
+            this.ClientSize = new System.Drawing.Size(1337, 699);
             this.Controls.Add(this.RandomizeStats);
             this.Controls.Add(this.RaceText);
             this.Controls.Add(this.ClassText);
