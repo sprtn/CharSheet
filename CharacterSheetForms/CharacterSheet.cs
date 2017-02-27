@@ -111,6 +111,15 @@ namespace CharacterSheetForms
             }
         }
 
+        private void UpdateAttributes(int attribute, int modifier, Label label, int result)
+        {
+            attribute = result;
+            modifier = (int)((result - 10) / 2);
+            if (attribute < 10 && attribute % 2 == 1)
+                modifier -= 1;
+            label.Text = modifier.ToString();
+        }
+
         private void RandomizeStats_Click(object sender, EventArgs e)
         {
             Random r = new Random();
@@ -120,15 +129,6 @@ namespace CharacterSheetForms
             IntelligenceField.Text = r.Next(3, 21).ToString();
             WisdomField.Text = r.Next(3, 21).ToString();
             CharismaField.Text = r.Next(3, 21).ToString();
-        }
-
-        private void UpdateAttributes(int attribute, int modifier, Label label, int result)
-        {
-            attribute = result;
-            modifier = (int)((result - 10) / 2);
-            if (attribute < 10 && attribute % 2 == 1)
-                modifier -= 1;
-            label.Text = modifier.ToString();
         }
 
         private void AttributeNotification_Click(object sender, EventArgs e)
