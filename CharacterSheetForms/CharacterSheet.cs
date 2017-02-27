@@ -13,7 +13,7 @@ namespace CharacterSheetForms
     public partial class CharacterSheet : Form
     {
         int
-            strength, strMod,
+            strength, strMod, raceStrModifier, featStrModifier,
             dexterity, dexMod,
             constitution, conMod,
             intelligence, intMod,
@@ -109,6 +109,17 @@ namespace CharacterSheetForms
                     UpdateAttributes(charisma, chaMod, CharismaModLabel, result);
                     break;
             }
+        }
+
+        private void RandomizeStats_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            StrengthField.Text = r.Next(3, 21).ToString();
+            DexterityField.Text = r.Next(3, 21).ToString();
+            ConstitutionField.Text = r.Next(3, 21).ToString();
+            IntelligenceField.Text = r.Next(3, 21).ToString();
+            WisdomField.Text = r.Next(3, 21).ToString();
+            CharismaField.Text = r.Next(3, 21).ToString();
         }
 
         private void UpdateAttributes(int attribute, int modifier, Label label, int result)

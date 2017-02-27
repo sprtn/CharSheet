@@ -58,6 +58,8 @@
             this.ClassText = new System.Windows.Forms.TextBox();
             this.RaceText = new System.Windows.Forms.TextBox();
             this.AttributeNotification = new System.Windows.Forms.Label();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.RandomizeStats = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TopBox)).BeginInit();
             this.SuspendLayout();
@@ -317,7 +319,7 @@
             "Sorcerer",
             "Warlock",
             "Wizard"});
-            this.ListboxClass.Location = new System.Drawing.Point(102, 199);
+            this.ListboxClass.Location = new System.Drawing.Point(6, -4);
             this.ListboxClass.Name = "ListboxClass";
             this.ListboxClass.Size = new System.Drawing.Size(93, 64);
             this.ListboxClass.TabIndex = 21;
@@ -363,7 +365,7 @@
             "Tiefling: Variant",
             "Triton",
             "Yuan-Ti Pureblood"});
-            this.ListboxRace.Location = new System.Drawing.Point(102, 117);
+            this.ListboxRace.Location = new System.Drawing.Point(6, 0);
             this.ListboxRace.Name = "ListboxRace";
             this.ListboxRace.Size = new System.Drawing.Size(189, 76);
             this.ListboxRace.TabIndex = 22;
@@ -452,7 +454,7 @@
             this.AttributeNotification.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.AttributeNotification.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AttributeNotification.Font = new System.Drawing.Font("OCR A Extended", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttributeNotification.Location = new System.Drawing.Point(102, 99);
+            this.AttributeNotification.Location = new System.Drawing.Point(6, 1);
             this.AttributeNotification.Name = "AttributeNotification";
             this.AttributeNotification.Size = new System.Drawing.Size(287, 14);
             this.AttributeNotification.TabIndex = 29;
@@ -460,6 +462,19 @@
             this.AttributeNotification.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.AttributeNotification.Visible = false;
             this.AttributeNotification.Click += new System.EventHandler(this.AttributeNotification_Click);
+            // 
+            // RandomizeStats
+            // 
+            this.RandomizeStats.AccessibleDescription = "RandomizeStats";
+            this.RandomizeStats.AccessibleName = "RandomizeStats";
+            this.RandomizeStats.BackColor = System.Drawing.Color.Orange;
+            this.RandomizeStats.Location = new System.Drawing.Point(12, 511);
+            this.RandomizeStats.Name = "RandomizeStats";
+            this.RandomizeStats.Size = new System.Drawing.Size(84, 45);
+            this.RandomizeStats.TabIndex = 30;
+            this.RandomizeStats.Text = "Randomize Stats";
+            this.RandomizeStats.UseVisualStyleBackColor = false;
+            this.RandomizeStats.Click += new System.EventHandler(this.RandomizeStats_Click);
             // 
             // CharacterSheet
             // 
@@ -469,7 +484,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1059, 568);
-            this.Controls.Add(this.AttributeNotification);
+            this.Controls.Add(this.RandomizeStats);
             this.Controls.Add(this.RaceText);
             this.Controls.Add(this.ClassText);
             this.Controls.Add(this.Level);
@@ -498,6 +513,7 @@
             this.Controls.Add(this.TopBox);
             this.Controls.Add(this.ListboxRace);
             this.Controls.Add(this.ListboxClass);
+            this.Controls.Add(this.AttributeNotification);
             this.Name = "CharacterSheet";
             this.RightToLeftLayout = true;
             this.Text = "Character Sheet";
@@ -540,6 +556,8 @@
         private System.Windows.Forms.TextBox ClassText;
         private System.Windows.Forms.TextBox RaceText;
         private System.Windows.Forms.Label AttributeNotification;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.Button RandomizeStats;
     }
 }
 
